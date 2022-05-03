@@ -3,6 +3,11 @@ import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
 import random
+from OpenSSL import crypto, SSL
+from socket import gethostname
+from pprint import pprint
+from time import gmtime, mktime
+from os.path import exists, join
 
 blackblankimage = random.randint(0, 255) * np.ones(shape=[512, 512, 3], dtype=np.uint8)
 
@@ -14,3 +19,9 @@ plt.imshow(blackblankimage)
 plt.savefig("./pythonCode1Image.png")
 
 #modify this code so that it also generates self signed certificate and keys
+country="United States"
+state="NV"
+city="Reno"
+organization="University of Nevada, Reno"
+organizationalunit="CSE"
+commonname=gethostname()
