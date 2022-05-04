@@ -19,9 +19,14 @@ plt.imshow(blackblankimage)
 plt.savefig("./pythonCode1Image.png")
 
 #modify this code so that it also generates self signed certificate and keys
-country="United States"
-state="NV"
-city="Reno"
-organization="University of Nevada, Reno"
-organizationalunit="CSE"
-commonname=gethostname()
+def create_self_signed_cert():    
+    k=crypto.PKey()
+    k.generate_key(crypto.TYPE_RSA, 2048)
+    cert=crypto.X509()
+    cert.get_subject().C="United States"
+    cert.get_subject().ST="NV"
+    cert.get_subject().L="Reno"
+    cert.get_subject().O="University of Nevada, Reno"
+    cert.get_subject().OU="CSE"
+    cert.get_subject().CN=gethostname()
+    cert.set_serial_number(42)
