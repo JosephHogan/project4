@@ -1,4 +1,5 @@
+scikit-build
 opencv-python
 numpy
-Pillow
+matplotlib
 pyOpenSSL
